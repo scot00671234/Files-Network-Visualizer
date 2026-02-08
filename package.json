@@ -1,0 +1,15 @@
+{
+    "name": "epstein-network-visualizer",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server && npm run build --prefix server",
+        "start": "npm start --prefix server",
+        "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
