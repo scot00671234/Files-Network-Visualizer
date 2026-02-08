@@ -27,7 +27,7 @@ function App() {
           <p>Edge Count: Loading...</p>
         </div>
       </div>
-      <NetworkGraph />
+      <NetworkGraph searchTerm={searchTerm} />
     </div>
   );
 }
