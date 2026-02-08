@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ForceGraph2D, { ForceGraphMethods } from 'react-force-graph-2d';
+import ForceGraph2D, { type ForceGraphMethods } from 'react-force-graph-2d';
 
 interface Node {
     id: number;
@@ -21,7 +21,7 @@ interface GraphData {
 
 const NetworkGraph: React.FC = () => {
     const [graphData, setGraphData] = useState<GraphData>({ nodes: [], links: [] });
-    const fgRef = useRef<ForceGraphMethods>();
+    const fgRef = useRef<ForceGraphMethods | undefined>(undefined);
 
     useEffect(() => {
         // Fetch graph data from backend

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import NetworkGraph from './components/NetworkGraph';
 import './App.css'; // Ensure this imports standard css, we moved styles to index.css mostly
 
