@@ -87,7 +87,10 @@ const start = async () => {
         });
     }
 
-    app.listen(PORT, () => {
+    // Health Check for Dokploy
+    app.get('/health', (req, res) => res.status(200).send('OK'));
+
+    app.listen(Number(PORT), '0.0.0.0', () => {
         console.log(`Server running on port ${PORT}`);
     });
 };

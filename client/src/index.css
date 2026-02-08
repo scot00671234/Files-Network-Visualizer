@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap');
+
 :root {
-  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: #000;
+  color: rgba(255, 255, 255, 0.92);
+  background-color: #050505;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +21,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+  background: radial-gradient(circle at 50% 50%, #121212 0%, #000000 100%);
 }
 
 #root {
@@ -31,59 +35,131 @@ body {
   position: absolute;
   top: 24px;
   left: 24px;
-  width: 360px;
+  width: 380px;
   max-height: calc(100vh - 48px);
   overflow-y: auto;
 
-  background: rgba(18, 18, 18, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 12px 32px rgba(0, 0, 0, 0.6);
 
   padding: 32px;
   z-index: 100;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .sidebar h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0 0 0.5rem 0;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .sidebar p {
   color: #888;
   font-size: 0.95rem;
+  line-height: 1.6;
   margin-bottom: 2rem;
   font-weight: 300;
 }
 
+/* Stats Section */
+.stats-container {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #eee;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Premium Input */
+.search-container {
+  position: relative;
+  margin-bottom: 8px;
+}
+
 .search-input {
   width: 100%;
-  padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
   color: white;
   font-size: 1rem;
+  font-family: inherit;
   outline: none;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
 }
 
 .search-input:focus {
   border-color: #4a90e2;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.15);
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ForceGraph Tooltip Customization (Injected by library, but we can style if it has classes) */
+.graph-tooltip {
+  background: rgba(10, 10, 10, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  color: #fff !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.9rem !important;
 }
